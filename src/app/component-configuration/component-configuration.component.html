@@ -1,0 +1,105 @@
+<div fxFlex fxLayout="column" fxLayoutAlign="space-around">
+    <div fxLayout="row" style="padding: 1em;">
+        <div fxFlex="80" fxLayoutAlign="start">
+            <div fxLayout="column">
+                <h2>Component Configuration</h2>
+                <small>Curriculum/Component configuration</small>
+            </div>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+            <button mat-button mat-raised-button class="btn-class" (click)="addComponents()">
+                <mat-icon style="color: white;">add</mat-icon>
+                Add to Component
+            </button>
+        </div>
+    </div>
+    <mat-card fxLayout="column" fxLayoutAlign="space-around stretch">
+        <mat-card-header fxFlex>
+            <h4>General Settings</h4>
+        </mat-card-header>
+        <mat-card-content fxFlex fxLayout="row" fxLayoutAlign="space-around stretch">
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <label>Year</label>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Select year" [formControl]="topDropdown" disableOptionCentering>
+                        <mat-option>Option 1</mat-option>
+                        <mat-option>Option 2</mat-option>
+                        <mat-option>Option 3</mat-option>
+                        <mat-option>Option 4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <label>Grade</label>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Select grade" [formControl]="topDropdown" disableOptionCentering>
+                        <mat-option>Option 1</mat-option>
+                        <mat-option>Option 2</mat-option>
+                        <mat-option>Option 3</mat-option>
+                        <mat-option>Option 4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <label>Name</label>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Select section" [formControl]="topDropdown" disableOptionCentering>
+                        <mat-option>Option 1</mat-option>
+                        <mat-option>Option 2</mat-option>
+                        <mat-option>Option 3</mat-option>
+                        <mat-option>Option 4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <label>Subject</label>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Health and Safety Habits" [formControl]="topDropdown"
+                        disableOptionCentering>
+                        <mat-option>Option 1</mat-option>
+                        <mat-option>Option 2</mat-option>
+                        <mat-option>Option 3</mat-option>
+                        <mat-option>Option 4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <label>Term</label>
+                <mat-form-field appearance="outline">
+                    <mat-select placeholder="Select item" [formControl]="topDropdown" disableOptionCentering>
+                        <mat-option>Option 1</mat-option>
+                        <mat-option>Option 2</mat-option>
+                        <mat-option>Option 3</mat-option>
+                        <mat-option>Option 4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card style="margin-top: 1em; height: 58vh;">
+        <mat-card-header>
+            <h3>Components</h3>
+        </mat-card-header>
+            <div *ngIf="!totalComponents.length" class="nocomp" fxLayoutAlign="center center">
+                <span>No Components Yet</span>
+            </div>
+            <div *ngIf="totalComponents.length" class="grid">
+                <span *ngFor="let comp of totalComponents">
+                    <div fxLayout="column">
+                        <div fxLayout="row">
+                            <label fxLayoutAlign="start">{{comp.name}}</label>
+                            <button mat-icon-button (click)="deleteComponent(comp)"  matTooltip="Delete Component">
+                                <mat-icon fxFlex fxLayoutAlign="end">delete</mat-icon>
+                            </button>
+                        </div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>{{comp.name}}</mat-label>
+                            <input matInput [formControl]="compFormControl">
+                        </mat-form-field>
+                    </div>
+
+                </span>
+            </div>
+    </mat-card>
+</div>

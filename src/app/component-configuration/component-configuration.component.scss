@@ -1,0 +1,19 @@
+.btn-class {
+    background-image: linear-gradient(to right, #a81e0e , #b1720e);
+    width: 15rem;
+    height: 70%;
+    text-align: justify;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+  .nocomp {
+    height: 94%; 
+    font-weight: 550;
+    color: grey;
+    font-size: 2em;
+    font-family: segoe ui, sans-serif;
+  }
